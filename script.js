@@ -28,8 +28,9 @@ const displayRandomQuote = (content) => {
     }
 }
 
-let isCount = true;
 // correct or incorrect
+let isCount = true;
+let storeTime;
 quoteInput.addEventListener("input", e => {
     const spans = document.querySelectorAll("span");
     const arr = [...e.target.value];
@@ -52,25 +53,24 @@ quoteInput.addEventListener("input", e => {
     })
     if (finish) {
         getRandomQuote();
+        clearInterval(storeTime);
         isCount = true;
-        timePlay(e);
     }
-    timePlay(e);
+    else{
+        setTime(e);
+    }
 })
-const timePlay = e => {
-    if (e.target.value && isCount) {
-        setTime()
-        isCount = false;
-    }
-}
 
 // Set Timer
 let second = 0;
 let startDate;
-const setTime = () => {
-    startDate = new Date;
-    setInterval(() => {
-        second = Math.floor((new Date - startDate)/1000);
-        timerDisplay.innerHTML = second;
-    }, 1000);
+const setTime = (e) => {
+    if (e.target.value && isCount) {
+        startDate = new Date;
+        storeTime = setInterval(() => {
+            second = Math.floor((new Date - startDate)/1000);
+            timerDisplay.innerHTML = second;
+        }, 1000);
+        isCount = false;
+    }
 }
