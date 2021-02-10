@@ -3,13 +3,15 @@
     font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
     background-color: #1E0555;
     font-size: 1.8rem;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88vh;
 }
 .container{
     background-color: #F0DB4F;
@@ -19,8 +21,8 @@ body {
     max-width: 95%;
 }
 .timer-display{
-    position: absolute;
-    top : 1.8rem;
+    margin-top: 1rem;
+    text-align: center;
     font-size:5rem;
     color: #F0DB4F;
     font-weight: bold;
@@ -42,4 +44,11 @@ body {
 }
 .quote-input:focus{
     border-color: #1E0555;
+}
+.correct{
+    color:green;
+}
+.incorrect{
+    color:red;
+    text-decoration: underline;
 }
