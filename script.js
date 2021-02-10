@@ -3,7 +3,6 @@ const quoteDisplay = document.getElementById('quote-display');
 const quoteInput = document.getElementById('quote-input');
 const timerDisplay = document.getElementById('timer-display');
 
-
 // Get Random Quote
 const getRandomQuote = async () => {
     const response = await fetch(url);
@@ -14,6 +13,7 @@ getRandomQuote();
 
 // Display Random Quote
 const displayRandomQuote = (content) => {
+    timerDisplay.innerHTML = 0;
     if (content.length < 150 && content.length > 40) {
         quoteDisplay.innerHTML = "";
         [...content].map(quote => {
@@ -26,9 +26,9 @@ const displayRandomQuote = (content) => {
     else{
         getRandomQuote();
     }
-    setTime();
 }
 
+let isCount = true;
 // correct or incorrect
 quoteInput.addEventListener("input", e => {
     const spans = document.querySelectorAll("span");
@@ -52,15 +52,25 @@ quoteInput.addEventListener("input", e => {
     })
     if (finish) {
         getRandomQuote();
+        isCount = true;
+        timePlay(e);
     }
+    timePlay(e);
 })
+const timePlay = e => {
+    if (e.target.value && isCount) {
+        setTime()
+        isCount = false;
+    }
+}
 
 // Set Timer
+let second = 0;
+let startDate;
 const setTime = () => {
-    timerDisplay.innerHTML = 0;
-    const startDate = new Date;
+    startDate = new Date;
     setInterval(() => {
-        let second = Math.floor((new Date - startDate)/1000);
+        second = Math.floor((new Date - startDate)/1000);
         timerDisplay.innerHTML = second;
     }, 1000);
 }
