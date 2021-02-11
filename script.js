@@ -14,7 +14,7 @@ getRandomQuote();
 // Display Random Quote
 const displayRandomQuote = (content) => {
     timerDisplay.innerHTML = 0;
-    if (content.length < 150 && content.length > 40) {
+    if (content.length < 150 && content.length > 45) {
         quoteDisplay.innerHTML = "";
         [...content].map(quote => {
             const span = document.createElement('span');

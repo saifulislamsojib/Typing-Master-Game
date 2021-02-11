@@ -4,14 +4,14 @@
 }
 body {
     margin: 0;
-    background-color: #1E0555;
+    background-color: #542daa;
     font-size: 1.8rem;
 }
 .main{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 88vh;
+    min-height: 87vh;
 }
 .container{
     background-color: #F0DB4F;
@@ -28,7 +28,8 @@ body {
     font-weight: bold;
 }
 .quote-display{
-    margin-left: 1rem;
+    margin:0 1rem;
+    text-align: justify;
 }
 .quote-input{
     background-color: transparent;
@@ -41,9 +42,10 @@ body {
     resize: none;
     font-size: 1.8rem;
     margin-top: 1.5rem;
+    text-align: justify;
 }
 .quote-input:focus{
-    border-color: #1E0555;
+    border-color: #542daa;
 }
 .correct{
     color:green;
